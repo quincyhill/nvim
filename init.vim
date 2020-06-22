@@ -25,14 +25,18 @@ set splitright
 " Set title, IDK if I need this in neo vim since it shows but whatever
 set title
 
+" FOR WINDOWS
+" Since vimplug might work different on windows im leaving it out for the time
+" being
 " Plugins will be downloaded under the specified directory.
-call plug#begin('~/.data/plugged')
+" call plug#begin('~/.data/plugged')
 
 " Declare the list of plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " List ends here. Plugins become visible to Vim after this call.
-call plug#end()
+" call plug#end()
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
