@@ -34,6 +34,7 @@ if !exists('g:vscode')
 	Plug 'prettier/vim-prettier', {'do': 'yarn-install'}
 	Plug 'mattn/emmet-vim'
 	Plug 'leafgarland/typescript-vim'
+	Plug 'peitalin/vim-jsx-typescript'
 
 	" List ends here. Plugins become visible to Vim after this call.
 	call plug#end()
@@ -120,6 +121,9 @@ if !exists('g:vscode')
 
 	" Have prettier run after writing to a ts
 	autocmd BufWritePost *.ts :Prettier
+
+	" This is for jsx and tsx for syntax highlighting
+	autocmd BufNewFile, BufRead *.tsx, *.jsx set filetype=typescript.tsx
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
