@@ -119,8 +119,11 @@ if !exists('g:vscode')
 	" Highlight the symbol and its references when holding the cursor
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
-	" Have prettier run after writing to a ts
+	" Have prettier run after writing to a typescript file
 	autocmd BufWritePost *.ts :Prettier
+
+	" Have prettier run after writing to HTML file
+	autocmd BufWritePost *.html :Prettier
 
 	" This is for jsx and tsx for syntax highlighting
 	autocmd BufNewFile, BufRead *.tsx, *.jsx set filetype=typescript.tsx
