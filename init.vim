@@ -32,7 +32,7 @@ set relativenumber
 " Setting highlight search
 set hlsearch
 hi Search ctermbg=Yellow
-hi Search ctermfg=Blue
+hi Search ctermfg=Black
 
 " Set Splitbelow so it only goes below
 set splitbelow
@@ -40,15 +40,22 @@ set splitbelow
 " Set split right so files split to the right
 set splitright
 
-" Set title, IDK if I need this in neo vim since it shows but whatever
+" Set title
 set title
+
+" Change the background color to #e4e4e4, aka a light grey
+highlight Pmenu ctermbg=254 guibg=254 
 
 " Sets where all the vim-plug plugins will be sent to
 call plug#begin('~/.data/plugged')
 
 " All the installed plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prettier/vim-prettier', {'do': 'yarn-install'}
+Plug 'neoclide/coc.nvim', {
+			\'branch': 'release'
+			\}
+Plug 'prettier/vim-prettier', {
+			\'do': 'npm install'
+			\}
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -138,6 +145,10 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" This fixes formatting for jsx and tsx with prettier
+autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2
+autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2
+
 " Have prettier run after writing to a typescript file
 autocmd BufWritePost *.ts :Prettier
 
@@ -147,11 +158,14 @@ autocmd BufWritePost *.js :Prettier
 " Have prettier run after writing to HTML file
 autocmd BufWritePost *.html :Prettier
 
-" This is for jsx and tsx for syntax highlighting
-autocmd BufNewFile, BufRead *.tsx, *.jsx set filetype=typescript.tsx
+" Have prettier run after writing to JSX file
+autocmd BufWritePost *.jsx :Prettier
 
-" JSX and TSX need special rules for their correct formats and spacing?
-autocmd BufRead, BufNewFile *.jsx, *.tsx setlocal shiftwidth=2 tabstop=2
+" Have prettier run after writing to TSX file
+autocmd BufWritePost *.tsx :Prettier
+
+" This is for jsx and tsx for syntax highlighting
+autocmd BufNewFile,BufRead *.tsx, *.jsx set filetype=typescript.tsx
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -227,9 +241,3 @@ nnoremap <silent><nowait> <space>k :<C-u>CocPrev<cr>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p :<C-u>CocListResume<cr>
 
-" for neovide stuff? idk still needs work tho
-let g:neovide_cursor_animation_length=0.13
-let g:neovide_cursor_vfx_mode = "railgun"
-
-" Change the background color to #e4e4e4, aka a light grey
-highlight Pmenu ctermbg=254 guibg=254 
