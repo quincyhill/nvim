@@ -43,19 +43,12 @@ set splitright
 " Set title
 set title
 
-" Change the background color to #e4e4e4, aka a light grey
-highlight Pmenu ctermbg=254 guibg=254 
-
 " Sets where all the vim-plug plugins will be sent to
 call plug#begin('~/.data/plugged')
 
 " All the installed plugins
-Plug 'neoclide/coc.nvim', {
-			\'branch': 'release'
-			\}
-Plug 'prettier/vim-prettier', {
-			\'do': 'npm install'
-			\}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier', {'do': 'npm install'}
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -145,9 +138,26 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" This fixes formatting for jsx and tsx with prettier
+" Fix tsx spacing
 autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2
+
+" Fix jsx spacing
 autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2
+
+" Fix typescript spacing
+autocmd FileType typescript setlocal tabstop=2 shiftwidth=2
+
+" Fix javascript spacing
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+
+" Fix css spacing
+autocmd FileType css setlocal tabstop=2 shiftwidth=2
+
+" Fix json spacing
+autocmd FileType json setlocal tabstop=2 shiftwidth=2
+
+" Fix html spacing
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
 
 " Have prettier run after writing to a typescript file
 autocmd BufWritePost *.ts :Prettier
@@ -241,3 +251,5 @@ nnoremap <silent><nowait> <space>k :<C-u>CocPrev<cr>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p :<C-u>CocListResume<cr>
 
+" Change the background color to #e4e4e4, aka a light grey
+" highlight Pmenu ctermbg=254 guibg=254 
