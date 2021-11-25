@@ -86,6 +86,45 @@ else
 	set signcolumn=yes
 endif
 
+" Fix tsx spacing
+autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2
+
+" Fix jsx spacing
+autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2
+
+" Fix typescript spacing
+autocmd FileType typescript setlocal tabstop=2 shiftwidth=2
+
+" Fix javascript spacing
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+
+" Fix css spacing
+autocmd FileType css setlocal tabstop=2 shiftwidth=2
+
+" Fix json spacing
+autocmd FileType json setlocal tabstop=2 shiftwidth=2
+
+" Fix html spacing
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
+
+" Have prettier run after writing to a typescript file
+autocmd BufWritePost *.ts :Prettier
+
+" Have prettier run after writing to a typescript file
+autocmd BufWritePost *.js :Prettier
+
+" Have prettier run after writing to HTML file
+autocmd BufWritePost *.html :Prettier
+
+" Have prettier run after writing to JSX file
+autocmd BufWritePost *.jsx :Prettier
+
+" Have prettier run after writing to TSX file
+autocmd BufWritePost *.tsx :Prettier
+
+" This is for jsx and tsx for syntax highlighting
+autocmd BufNewFile,BufRead *.tsx, *.jsx set filetype=typescript.tsx
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -137,45 +176,6 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Fix tsx spacing
-autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2
-
-" Fix jsx spacing
-autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2
-
-" Fix typescript spacing
-autocmd FileType typescript setlocal tabstop=2 shiftwidth=2
-
-" Fix javascript spacing
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
-
-" Fix css spacing
-autocmd FileType css setlocal tabstop=2 shiftwidth=2
-
-" Fix json spacing
-autocmd FileType json setlocal tabstop=2 shiftwidth=2
-
-" Fix html spacing
-autocmd FileType html setlocal tabstop=2 shiftwidth=2
-
-" Have prettier run after writing to a typescript file
-autocmd BufWritePost *.ts :Prettier
-
-" Have prettier run after writing to a typescript file
-autocmd BufWritePost *.js :Prettier
-
-" Have prettier run after writing to HTML file
-autocmd BufWritePost *.html :Prettier
-
-" Have prettier run after writing to JSX file
-autocmd BufWritePost *.jsx :Prettier
-
-" Have prettier run after writing to TSX file
-autocmd BufWritePost *.tsx :Prettier
-
-" This is for jsx and tsx for syntax highlighting
-autocmd BufNewFile,BufRead *.tsx, *.jsx set filetype=typescript.tsx
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -252,4 +252,4 @@ nnoremap <silent><nowait> <space>k :<C-u>CocPrev<cr>
 nnoremap <silent><nowait> <space>p :<C-u>CocListResume<cr>
 
 " Change the background color to #e4e4e4, aka a light grey
-" highlight Pmenu ctermbg=254 guibg=254 
+highlight Pmenu ctermbg=255 guibg=255 
