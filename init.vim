@@ -122,6 +122,9 @@ autocmd BufWritePost *.jsx :Prettier
 " Have prettier run after writing to TSX file
 autocmd BufWritePost *.tsx :Prettier
 
+" Have prettier run after writing to CSS file
+autocmd BufWritePost *.css :Prettier
+
 " This is for jsx and tsx for syntax highlighting
 autocmd BufNewFile,BufRead *.tsx, *.jsx set filetype=typescript.tsx
 
