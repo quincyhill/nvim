@@ -1,13 +1,19 @@
 if !exists('g:vscode')
-	" This is to set the tabwidth to 4 
-	set tabstop=4
-	
+
+	" Settings for general files
+
 	" for global clipboard
 	set clipboard=unnamedplus
 	
 	" Shifts over 4 characters
 	set shiftwidth=4
-	
+
+	" This is to set the tabwidth to 4 
+	set tabstop=4	
+
+	" Tab space to be 4 characters
+	set softtabstop=4
+
 	" Does its best to autoindent
 	set smartindent
 	
@@ -80,27 +86,29 @@ if !exists('g:vscode')
 	else
 		set signcolumn=yes
 	endif
+
+	" For web files
 	
 	" Fix tsx spacing
-	autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2 
+	autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix jsx spacing
-	autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2 
+	autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix typescript spacing
-	autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix javascript spacing
-	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix css spacing
-	autocmd FileType css setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix json spacing
-	autocmd FileType json setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix html spacing
-	autocmd FileType html setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Have prettier run after writing to a typescript file
 	autocmd BufWritePost *.ts :Prettier
@@ -254,7 +262,7 @@ if !exists('g:vscode')
 else
 	" This is for vscode nvim settings
 	
-	" Standard sizes
+	" Settings for general files
 	
 	" This is to set the tabwidth to 4 
 	set tabstop=4
@@ -265,26 +273,29 @@ else
 	" Shifts over 4 characters
 	set shiftwidth=4
 
-	" Web languages sizes
+	" Tab space to be 4 characters
+	set softtabstop=4
+
+	" For web files
 
 	" Fix tsx spacing
-	autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2 
+	autocmd! BufNewFile,BufReadPre,FileReadPre *.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix jsx spacing
-	autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2 
+	autocmd! BufNewFile,BufReadPre,FileReadPre *.jsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix typescript spacing
-	autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix javascript spacing
-	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix css spacing
-	autocmd FileType css setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix json spacing
-	autocmd FileType json setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	
 	" Fix html spacing
-	autocmd FileType html setlocal tabstop=2 shiftwidth=2 
+	autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 endif
